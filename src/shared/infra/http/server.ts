@@ -3,15 +3,17 @@ import routes from './routes';
 import { createConnection } from 'typeorm';
 import express, { NextFunction, Request, Response } from 'express';
 import AppError from '../../errors/AppErrors';
-import ArduinoData from '../../../modules/arduinodata/infra/typeorm/entities/ArduinoData';
+import { errors } from 'celebrate';
 
 const app = express();
 
 app.use(express.json());
 
-// createConnection();
+createConnection();
 
 app.use(routes);
+
+app.use(errors());
 
 app.use(
     (error: Error, request: Request, response: Response, next: NextFunction) => {
@@ -28,18 +30,6 @@ app.use(
         });
     },
 );
-
-// createConnection().then(async connection => {
-
-//     console.log("Inserting a new Student into the database..."); const std = new ArduinoData(); std.arduinoId = "teste";
-//     std.distance = 3000;
-//     await connection.manager.save(std); console.log("Saved a new user with id: " + std.id);
-
-//     console.log("Loading users from the database...");
-//     const stds = await connection.manager.find(ArduinoData); console.log("Loaded users: ", stds);
-
-//     console.log("TypeORM with MongoDB");
-// }).catch(error => console.log(error));
 
 app.listen(3000, () => {
     console.log("Server started on port 3000");

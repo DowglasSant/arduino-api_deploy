@@ -1,7 +1,7 @@
-import { Column, Entity, ObjectID, ObjectIdColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ObjectID, ObjectIdColumn } from "typeorm";
 
 @Entity()
-class ArduinoData {
+export class ArduinoData {
 
     @ObjectIdColumn()
     id: ObjectID;
@@ -11,6 +11,10 @@ class ArduinoData {
 
     @Column()
     distance: number;
-}
 
-export default ArduinoData;
+    @Column()
+    sendAt: string;
+
+    @CreateDateColumn()
+    createdAt: Date;
+}
