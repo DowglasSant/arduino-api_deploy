@@ -1,0 +1,14 @@
+{
+    "type": "mongodb",
+    "url": "mongodb+srv://apiardudata:arduinodata123@api-arduino.gqtssbi.mongodb.net/?retryWrites=true&w=majority",
+    "useNewUrlParser": true,
+    "synchronize": true,
+    "logging": true,
+    "entities": [
+        ".src/modules/**/infra/typeorm/entities/*.ts"
+    ],
+    "extra": {
+        "ssl": true,
+        "authSource": "admin"
+    }
+}
