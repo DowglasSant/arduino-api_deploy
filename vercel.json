@@ -10,6 +10,10 @@
         {
             "src": "/(.*)",
             "dest": "src/shared/infra/http/routes/index.ts"
+        },
+        {
+            "src": "/arduinodata",
+            "dest": "src/shared/infra/http/routes/index.ts"
         }
     ]
   }
