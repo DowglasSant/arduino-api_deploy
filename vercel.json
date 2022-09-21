@@ -13,7 +13,7 @@
         },
         {
             "src": "/arduinodata",
-            "dest": "src/shared/infra/http/routes/index.ts"
+            "dest": "src/modules/arduinodata/infra/http/routes/arduinodata.routes.ts"
         }
     ]
   }
