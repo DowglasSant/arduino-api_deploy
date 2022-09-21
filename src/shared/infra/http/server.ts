@@ -3,7 +3,8 @@ import routes from './routes';
 import { createConnection } from 'typeorm';
 import express, { NextFunction, Request, Response } from 'express';
 import AppError from '../../errors/AppErrors';
-import { errors } from 'celebrate';
+import { celebrate, errors, Joi, Segments } from 'celebrate';
+import ArduinoDataController from '../../../modules/arduinodata/infra/http/controller/ArduinoDataController';
 
 const app = express();
 
@@ -11,7 +12,16 @@ app.use(express.json());
 
 createConnection();
 
-app.use(routes);
+const arduinoDataController = new ArduinoDataController();
+
+app.post("/arduinodata", celebrate({
+    [Segments.BODY]: {
+        arduinoId: Joi.string().required(),
+        distance: Joi.number().required(),
+        sendAt: Joi.string().required()
+    }
+}),
+    arduinoDataController.addData);
 
 app.use(errors());
 
