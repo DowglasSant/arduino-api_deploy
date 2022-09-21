@@ -5,4 +5,8 @@ const routes = Router();
 
 routes.use("/arduinodata", arduinoDataRouter);
 
+routes.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+
 export default routes;
