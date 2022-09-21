@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/arduinodata",
-            "dest": "./src/shared/infra/http/server.ts"
+            "dest": "/src/shared/infra/http/server.ts"
         }
     ]
   }
