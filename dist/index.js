@@ -32,6 +32,5 @@ app.use((error, request, response, next) => {
     message: 'Internal Server Error'
   });
 });
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
-});
+
+app.listen(process.env.PORT || 5000);
