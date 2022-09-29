@@ -2,13 +2,13 @@
 
 require("reflect-metadata");
 
-var _routes = _interopRequireDefault(require("./routes"));
+var _routes = _interopRequireDefault(require("./shared/infra/http/routes"));
 
 var _typeorm = require("typeorm");
 
 var _express = _interopRequireDefault(require("express"));
 
-var _AppErrors = _interopRequireDefault(require("../../errors/AppErrors"));
+var _AppErrors = _interopRequireDefault(require("./shared/errors/AppErrors"));
 
 var _celebrate = require("celebrate");
 
