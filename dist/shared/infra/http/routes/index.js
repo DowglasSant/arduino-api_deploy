@@ -14,7 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const routes = (0, _express.Router)();
 routes.use("/arduinodata", _arduinodata.default);
 routes.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Arduino API Data is Running...');
 });
 var _default = routes;
 exports.default = _default;
