@@ -22,5 +22,11 @@ arduinoDataRouter.post("/", (0, _celebrate.celebrate)({
     sendAt: _celebrate.Joi.string().required()
   }
 }), arduinoDataController.addData);
+arduinoDataRouter.get('/', arduinoDataController.index);
+arduinoDataRouter.get('/:id', (0, _celebrate.celebrate)({
+  [_celebrate.Segments.PARAMS]: {
+    id: _celebrate.Joi.string().required()
+  }
+}), arduinoDataController.show);
 var _default = arduinoDataRouter;
 exports.default = _default;

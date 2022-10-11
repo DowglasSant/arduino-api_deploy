@@ -28,6 +28,16 @@ class ArduinoDataRepository extends Repository<ArduinoData> {
 
         return addedData;
     }
+
+    public async findByArduinoId(arduinoId: string): Promise<ArduinoData[] | undefined> {
+        const arduinoData = await this.find({
+            where: {
+                arduinoId: arduinoId,
+            },
+        });
+
+        return arduinoData;
+    }
 }
 
 export default ArduinoDataRepository;

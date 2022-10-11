@@ -33,6 +33,15 @@ let ArduinoDataRepository = (_dec = (0, _typeorm.EntityRepository)(_ArduinoData.
     return addedData;
   }
 
+  async findByArduinoId(arduinoId) {
+    const arduinoData = await this.find({
+      where: {
+        arduinoId: arduinoId
+      }
+    });
+    return arduinoData;
+  }
+
 }) || _class);
 var _default = ArduinoDataRepository;
 exports.default = _default;

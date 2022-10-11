@@ -14,6 +14,18 @@ arduinoDataRouter.post("/", celebrate({
 }),
     arduinoDataController.addData);
 
+arduinoDataRouter.get('/', arduinoDataController.index);
+
+arduinoDataRouter.get(
+    '/:id',
+    celebrate({
+        [Segments.PARAMS]: {
+            id: Joi.string().required(),
+        },
+    }),
+    arduinoDataController.show,
+);
+
 export default arduinoDataRouter;
 
 
