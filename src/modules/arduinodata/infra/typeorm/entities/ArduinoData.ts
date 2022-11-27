@@ -10,7 +10,13 @@ export class ArduinoData {
     arduinoId: string;
 
     @Column()
-    distance: number;
+    longitude: string;
+
+    @Column()
+    latitude: string;
+
+    @Column()
+    entupido: boolean;
 
     @Column()
     sendAt: string;

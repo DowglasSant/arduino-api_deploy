@@ -17,13 +17,17 @@ class ArduinoDataController {
   async addData(request, response, nextFuction) {
     const {
       arduinoId,
-      distance,
+      longitude,
+      latitude,
+      entupido,
       sendAt
     } = request.body;
     const addDataService = new _AddDataService.default();
     const arduinoData = await addDataService.execute({
       arduinoId,
-      distance,
+      longitude,
+      latitude,
+      entupido,
       sendAt
     });
     return response.json(arduinoData);

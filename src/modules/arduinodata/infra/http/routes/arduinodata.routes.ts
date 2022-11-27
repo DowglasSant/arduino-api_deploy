@@ -8,7 +8,9 @@ const arduinoDataController = new ArduinoDataController();
 arduinoDataRouter.post("/", celebrate({
     [Segments.BODY]: {
         arduinoId: Joi.string().required(),
-        distance: Joi.number().required(),
+        longitude: Joi.string().required(),
+        latitude: Joi.string().required(),
+        entupido: Joi.boolean().required(),
         sendAt: Joi.string().required()
     }
 }),

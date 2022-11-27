@@ -7,29 +7,41 @@ exports.default = void 0;
 
 var _typeorm = require("typeorm");
 
+var _AtualizaEntupidoService = _interopRequireDefault(require("../../../../bueiro/services/AtualizaEntupidoService"));
+
 var _ArduinoData = require("../entities/ArduinoData");
 
 var _dec, _class;
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 let ArduinoDataRepository = (_dec = (0, _typeorm.EntityRepository)(_ArduinoData.ArduinoData), _dec(_class = class ArduinoDataRepository extends _typeorm.Repository {
   async addData({
     arduinoId,
-    distance,
+    longitude,
+    latitude,
+    entupido,
     sendAt
   }) {
+    const atualizaEntupidoService = new _AtualizaEntupidoService.default();
     const arduinoData = {
       arduinoId,
-      distance,
+      longitude,
+      latitude,
+      entupido,
       sendAt
     };
     await this.save(arduinoData);
     const addedData = await this.findOne({
       where: {
         arduinoId,
-        distance,
+        longitude,
+        latitude,
+        entupido,
         sendAt
       }
     });
+    await atualizaEntupidoService.execute(longitude, latitude, entupido);
     return addedData;
   }
 
@@ -40,6 +52,16 @@ let ArduinoDataRepository = (_dec = (0, _typeorm.EntityRepository)(_ArduinoData.
       }
     });
     return arduinoData;
+  }
+
+  async findByLatitudeLongitude(longitude, latitude) {
+    const arduino = await this.findOne({
+      where: {
+        longitude: longitude,
+        latitude: latitude
+      }
+    });
+    return arduino;
   }
 
 }) || _class);

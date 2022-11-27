@@ -16,18 +16,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 class AddDataService {
   async execute({
     arduinoId,
-    distance,
+    longitude,
+    latitude,
+    entupido,
     sendAt
   }) {
     const arduinoDataRepository = (0, _typeorm.getCustomRepository)(_ArduinoDataRepository.default);
 
-    if (arduinoId === null || distance === null || sendAt === null) {
-      throw new _AppErrors.default("Field arduinoId or distance is null!");
+    if (arduinoId === null || longitude === null || latitude === null || entupido === null || sendAt === null) {
+      throw new _AppErrors.default("Field arduinoId or entupido is null!");
     }
 
     const arduinoData = arduinoDataRepository.addData({
       arduinoId,
-      distance,
+      longitude,
+      latitude,
+      entupido,
       sendAt
     });
     return arduinoData;

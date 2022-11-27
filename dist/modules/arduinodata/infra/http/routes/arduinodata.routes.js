@@ -18,7 +18,9 @@ const arduinoDataController = new _ArduinoDataController.default();
 arduinoDataRouter.post("/", (0, _celebrate.celebrate)({
   [_celebrate.Segments.BODY]: {
     arduinoId: _celebrate.Joi.string().required(),
-    distance: _celebrate.Joi.number().required(),
+    longitude: _celebrate.Joi.string().required(),
+    latitude: _celebrate.Joi.string().required(),
+    entupido: _celebrate.Joi.boolean().required(),
     sendAt: _celebrate.Joi.string().required()
   }
 }), arduinoDataController.addData);

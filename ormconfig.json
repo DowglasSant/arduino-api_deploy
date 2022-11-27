@@ -1,6 +1,6 @@
 {
     "type": "mongodb",
-    "url": "mongodb+srv://apiarduino:WAaNJBWULe2VfJpn@ac-biqkekz-shard-00-01.gqtssbi.mongodb.net:27017/?retryWrites=true&w=majority",
+    "url": "mongodb+srv://apiarduino:WAaNJBWULe2VfJpn@ac-biqkekz-shard-00-02.gqtssbi.mongodb.net:27017/?retryWrites=true&w=majority",
     "useNewUrlParser": true,
     "synchronize": true,
     "logging": true,
