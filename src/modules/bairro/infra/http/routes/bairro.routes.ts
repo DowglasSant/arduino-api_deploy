@@ -8,18 +8,6 @@ const bairroController = new BairroController();
 bairroRouter.get('/', bairroController.index);
 
 bairroRouter.post(
-    '/',
-    celebrate({
-        [Segments.BODY]: {
-            nome: Joi.string().required(),
-            longitude: Joi.string().required(),
-            latitude: Joi.string().required(),
-        },
-    }),
-    bairroController.adiciona,
-);
-
-bairroRouter.post(
     '/nivel',
     celebrate({
         [Segments.BODY]: {

@@ -14,20 +14,6 @@ export default class BairroController {
         return response.json(bairros);
     }
 
-    public async adiciona(request: Request, response: Response): Promise<Response> {
-        const { nome, longitude, latitude } = request.body;
-
-        const bairroRepository = getCustomRepository(BairroRepository);
-
-        const bueiro = await bairroRepository.adicionaBairro({
-            nome,
-            longitude,
-            latitude,
-        });
-
-        return response.json(bueiro);
-    }
-
     public async nivelBairro(request: Request, response: Response): Promise<Response> {
         const nivelDoBairroService = new NivelDoBairroService();
 
