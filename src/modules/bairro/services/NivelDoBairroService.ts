@@ -1,6 +1,5 @@
 import { getCustomRepository } from "typeorm";
 import BueiroRepository from "../../bueiro/infra/typeorm/repositories/BueiroRepository";
-import { Bairro } from "../infra/typeorm/entities/Bairro";
 
 class NivelDoBairroService {
     public async execute(nome_bairro: string): Promise<number> {

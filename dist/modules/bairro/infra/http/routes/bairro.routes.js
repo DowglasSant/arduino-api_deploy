@@ -16,13 +16,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const bairroRouter = (0, _express.Router)();
 const bairroController = new _BairroController.default();
 bairroRouter.get('/', bairroController.index);
-bairroRouter.post('/', (0, _celebrate.celebrate)({
-  [_celebrate.Segments.BODY]: {
-    nome: _celebrate.Joi.string().required(),
-    longitude: _celebrate.Joi.string().required(),
-    latitude: _celebrate.Joi.string().required()
-  }
-}), bairroController.adiciona);
 bairroRouter.post('/nivel', (0, _celebrate.celebrate)({
   [_celebrate.Segments.BODY]: {
     nome_bairro: _celebrate.Joi.string().required()
